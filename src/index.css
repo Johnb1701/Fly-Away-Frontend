@@ -1,0 +1,155 @@
+/* src/index.css */
+:root {
+  /* Paleta de colores */
+  --primary-color: #0066cc;
+  --primary-hover: #004c99;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --success: #28a745;
+  --success-hover: #218838;
+  --disabled: #cccccc;
+  
+  /* Medidas universales */
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+/* --- CLASES DE LA BARRA DE NAVEGACIÓN --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar h2 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* --- CLASES PARA BOTONES --- */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: var(--success-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- CLASES PARA CONTENEDORES Y TARJETAS --- */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.flight-list {
+  display: grid;
+  gap: 20px;
+}
+
+.flight-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.flight-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.flight-info h3 {
+  margin: 0 0 10px 0;
+  color: var(--primary-color);
+}
+
+.flight-info p {
+  margin: 5px 0;
+  color: var(--text-muted);
+}
+
+.flight-info strong {
+  color: var(--text-main);
+}
