@@ -1,8 +1,8 @@
-// src/pages/Bookings.tsx
+
 import React, { useState } from 'react';
 import api from '../api';
 
-// Definimos la estructura de la reserva según los datos que entrega el backend
+
 interface Ticket {
   id: number;
   bookingDate: string;
@@ -14,12 +14,11 @@ interface Ticket {
 }
 
 const Bookings = () => {
-  // Estados para capturar el ID de búsqueda y almacenar el ticket encontrado
+
   const [bookingId, setBookingId] = useState('');
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [error, setError] = useState('');
 
-  // Función encargada de conectar con el endpoint GET /flights/book/{id}
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');

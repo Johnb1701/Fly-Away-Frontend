@@ -1,57 +1,51 @@
-// src/pages/Login.tsx
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../api';
 
 const Login = () => {
-  // 1. EL ESTADO: Guardamos los datos del formulario y posibles errores
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
   
-  // Herramienta para redirigir a otras pantallas
+
   const navigate = useNavigate();
 
-  // 2. FUNCIÓN PARA ACTUALIZAR LA MEMORIA AL ESCRIBIR
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // 3. FUNCIÓN PARA ENVIAR EL FORMULARIO AL BACKEND
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
-    // Validación básica: comprobar que no estén vacíos
     if (!formData.email || !formData.password) {
       setError('Por favor, ingresa tu email y contraseña.');
       return;
     }
 
     try {
-      // Hacemos la petición POST al backend mediante nuestro proxy de Vite
+
       const response = await api.post('/auth/login', formData);
       
-      // Si es exitoso, el backend nos devuelve el token de seguridad
       const token = response.data.token;
       
-      // GUARDAMOS EL TOKEN en la memoria local del navegador (nuestra "pulsera VIP")
       localStorage.setItem('token', token);
       
-      // Redirigimos a la pantalla principal de vuelos (usamos /home para evitar choques)
+      
       navigate('/home');
 
     } catch (err: any) {
       console.error("Error en login:", err);
-      // Si las credenciales son malas, mostramos el error
+      
       setError('Credenciales incorrectas. Revisa tu correo y contraseña e intenta nuevamente.');
     }
   };
 
-  // 4. LO QUE SE DIBUJA EN LA PANTALLA
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto', fontFamily: 'sans-serif' }}>
       <h2>Iniciar Sesión 🎟️</h2>

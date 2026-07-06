@@ -1,4 +1,4 @@
-// src/App.tsx
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -7,7 +7,6 @@ import Bookings from './pages/Bookings';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 
-// ¡NUEVO! Importamos los estilos globales
 import './index.css'; 
 
 function App() {
